@@ -1,0 +1,26 @@
+{
+  "name": "discord-auth-website",
+  "version": "1.0.0",
+  "description": "A website with Discord OAuth authentication, custom decorations, and background media controls",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "discord",
+    "oauth",
+    "authentication",
+    "decorations",
+    "website"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": "^20.0.0"
+  },
+  "dependencies": {
+    "discord-rpc": "^4.0.1",
+    "dotenv": "^16.0.0"
+  }
+}

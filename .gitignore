@@ -1,0 +1,25 @@
+# Build outputs
+node_modules/
+dist/
+build/
+
+# Sensitive files
+config.js
+*.env
+.env
+.env.local
+
+# Media files (optional - uncomment if you want to exclude large video/audio files)
+# assets/bg-video.mp4
+# assets/bg-music.mp3
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discord Auth - Custom Decorations</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Background Video -->
+    <video id="bgVideo" class="background-video" autoplay muted loop>
+      <source src="assets/bg-video.mp4" type="video/mp4" />
+    </video>
+
+    <!-- Background Audio -->
+    <audio id="bgAudio" class="background-audio" autoplay muted loop>
+      <source src="assets/bg-music.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- Main Container -->
+    <div class="container">
+      <!-- Login Section -->
+      <div id="loginSection" class="section login-section">
+        <img src="https://i.pinimg.com/736x/55/26/6c/55266c5679d71c1106093510c4909062.jpg" alt="Obito" class="login-pfp" style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid #5865F2; margin-bottom: 20px; box-shadow: 0 0 20px rgba(88, 101, 242, 0.5);">
+        <h1>🎵 Discord Dashboard</h1>
+        <p style="margin-bottom: 5px;">Authenticate with Discord to customize your decorations</p>
+        <p style="color: #bbb; font-size: 0.9em; margin-bottom: 25px;">Made by Obito</p>
+        <button id="discordLoginBtn" class="discord-btn">
+          <span>Login with Discord</span>
+        </button>
+      </div>
+
+      <!-- Dashboard Section -->
+      <div id="dashboardSection" class="section dashboard-section hidden">
+        <div class="header">
+          <h1>Welcome, <span id="userName">User</span>!</h1>
+          <div class="header-buttons">
+            <button id="viewProfileBtn" class="view-profile-btn">
+              📋 View Profile
+            </button>
+            <button id="copyLinkBtn" class="copy-link-btn" title="Copy Profile Link">
+              🔗 Link
+            </button>
+            <button id="logoutBtn" class="logout-btn">Logout</button>
+          </div>
+        </div>
+
+        <div class="content">
+          <!-- User Profile -->
+          <div class="profile-card">
+            <img id="userAvatar" src="" alt="User Avatar" class="avatar" />
+            <div class="profile-info">
+              <p id="userTag">@user#0000</p>
+            </div>
+          </div>
+
+          <!-- Decorations Selection -->
+          <div class="decorations-panel">
+            <h2>✨ Select Decorations</h2>
+            <div id="decorationsList" class="decorations-grid">
+              <!-- Decorations will be loaded here -->
+            </div>
+          </div>
+
+          <!-- ═══ Category 1: Media Uploads ═══ -->
+          <div class="media-controls">
+            <h2>🎬 Media Uploads</h2>
+            <div class="control-group">
+              <label for="videoToggle">Dashboard Video:</label>
+              <input type="checkbox" id="videoToggle" checked />
+              <input type="range" id="videoVolume" min="0" max="100" value="0" class="volume-slider" />
+            </div>
+            <div class="control-group">
+              <label for="audioToggle">Dashboard Music:</label>
+              <input type="checkbox" id="audioToggle" checked />
+              <input type="range" id="audioVolume" min="0" max="100" value="50" class="volume-slider" />
+            </div>
+            <div class="control-group upload-group">
+              <label>📹 Profile Background Video:</label>
+              <div class="upload-row">
+                <input type="file" id="videoUpload" accept="video/*" class="file-input" />
+                <button id="removeVideoBtn" class="remove-media-btn hidden">🗑️ Remove Video</button>
+              </div>
+              <span id="videoUploadStatus" class="upload-status"></span>
+            </div>
+            <div class="control-group upload-group">
+              <label>🎵 Profile Background Music:</label>
+              <div class="upload-row">
+                <input type="file" id="audioUpload" accept="audio/*" class="file-input" />
+                <button id="removeAudioBtn" class="remove-media-btn hidden">🗑️ Remove Music</button>
+              </div>
+              <span id="audioUploadStatus" class="upload-status"></span>
+            </div>
+          </div>
+
+          <!-- ═══ Category 2: Background Effects ═══ -->
+          <div class="customization-panel">
+            <h2>🌟 Background Effects</h2>
+            <div class="customization-group">
+              <div class="effects-grid">
+                <label class="effect-checkbox">
+                  <input type="checkbox" id="effectRain" />
+                  <span>🌧️ Rain</span>
+                </label>
+                <label class="effect-checkbox">
+                  <input type="checkbox" id="effectNight" />
+                  <span>🌙 Night Mode</span>
+                </label>
+                <label class="effect-checkbox">
+                  <input type="checkbox" id="effectBlur" />
+                  <span>💧 Blur</span>
+                </label>
+                <label class="effect-checkbox">
+                  <input type="checkbox" id="effectRetro" />
+                  <span>📺 Retro TV</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- ═══ Category 3: Profile Card Style ═══ -->
+          <div class="customization-panel">
+            <h2>🎨 Profile Card Style</h2>
+            <div class="customization-group">
+              <h3>Card Appearance</h3>
+              <div class="style-controls">
+                <div class="control-item">
+                  <label>Show Discord Decoration:</label>
+                  <input type="checkbox" id="showDiscordDecoration" checked />
+                </div>
+                <div class="control-item">
+                  <label>Card Color:</label>
+                  <input type="color" id="cardColor" value="#ffffff" />
+                </div>
+                <div class="control-item">
+                  <label>Opacity:</label>
+                  <input type="range" id="cardOpacity" min="0" max="100" value="85" />
+                </div>
+                <div class="control-item">
+                  <label>Border Color:</label>
+                  <input type="color" id="cardBorderColor" value="#ffffff" />
+                </div>
+                <div class="control-item">
+                  <label>Name Color:</label>
+                  <input type="color" id="nameColor" value="#ffffff" />
+                </div>
+              </div>
+            </div>
+            <div class="customization-group">
+              <h3>Widget Box</h3>
+              <div class="style-controls">
+                <div class="control-item">
+                  <label>Hide Widget Box:</label>
+                  <input type="checkbox" id="widgetInvisible" />
+                </div>
+                <div class="control-item">
+                  <label>Box Color:</label>
+                  <input type="color" id="boxColor" value="#1a1a2e" />
+                </div>
+                <div class="control-item">
+                  <label>Box Blur:</label>
+                  <input type="range" id="boxBlur" min="0" max="30" value="10" />
+                </div>
+              </div>
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button id="cancelBtn" class="btn btn-secondary">Cancel</button>
+                <button id="saveBtn" class="btn btn-primary">Save Changes</button>
+            </div>
+          </div>
+
+          <!-- Selected Decorations Display -->
+          <div class="selected-decorations">
+            <h2>🎨 Your Decorations</h2>
+            <div id="selectedDecoDisplay" class="decoration-display">
+              <p class="placeholder">No decorations selected</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="config.js"></script>
+    <script src="discord-auth.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
